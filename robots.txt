@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bem.159-194-231-180.sslip.io/sitemap.xml
