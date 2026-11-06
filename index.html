@@ -54,7 +54,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,560;1,9..144,450&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,560;1,9..144,450&family=Public+Sans:wght@300;400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f6f8f5; --bg-soft:#eef3ec; --card:#ffffff;
@@ -88,7 +88,7 @@
 
   /* HERO + quick form */
   .hero{padding:90px 0 90px; position:relative; overflow:hidden;}
-  .hero::before{content:''; position:absolute; top:-180px; right:-160px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, var(--sage-pale) 0%, rgba(217,169,142,.25) 55%, transparent 75%); z-index:0; animation:floatBlob 10s ease-in-out infinite;}
+  .hero::before{content:''; position:absolute; top:-180px; right:-160px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, var(--sage-pale) 0%, rgba(217,169,142,.25) 55%, transparent 75%); z-index:0;}
   @keyframes floatBlob{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-18px,16px) scale(1.04);}}
 
 
@@ -99,6 +99,27 @@
   .seal{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1.5px solid #b23a3a; color:#b23a3a; border-radius:4px; font-size:17px; line-height:1; margin-left:12px; vertical-align:middle;}
   .hand{font-family:var(--serif); font-style:italic; color:var(--gold); font-size:18px; margin-top:14px;}
   @media (max-width:860px){ .sakura{width:110px; height:81px; opacity:.4;} }
+
+
+  /* v2: без анимации, золотой акцент, крупная сакура, горы */
+  :root{ --gold:#b8893b; --gold-soft:#e6d3a3; }
+  .sakura{width:360px; height:266px; opacity:.6;}
+  @media (max-width:860px){ .sakura{width:190px; height:140px; opacity:.45;} }
+  .hero-mount{position:absolute; left:0; right:0; bottom:0; width:100%; height:240px; z-index:0; pointer-events:none;}
+  .hero .container{padding-bottom:60px;}
+  .divider{background:linear-gradient(90deg,var(--gold),var(--gold-soft));}
+  .nav-cta{border-color:var(--gold); color:var(--sage-deep);}
+  .booking .eyebrow{color:var(--gold-soft);}
+  .booking-contact a{color:rgba(255,255,255,.9);}
+  .booking-contact a::first-letter{color:var(--gold);}
+  .btn-primary{box-shadow:0 10px 30px rgba(70,99,86,.18), inset 0 0 0 1.5px rgba(230,211,163,.55);}
+  .hand{font-family:'Marck Script','Caveat',cursive; font-style:normal; color:var(--gold-soft); font-size:34px; line-height:1.2; margin:22px 0 10px;}
+  .hand::before{content:''; display:block; width:46px; height:1.5px; background:var(--gold); margin-bottom:12px;}
+  .about-visual{background:#f1f5ee; border:1.5px solid var(--gold-soft); align-items:flex-start;}
+  .about-visual .av-mount{position:absolute; left:0; right:0; bottom:0; width:100%; height:62%;}
+  .about-visual .center-text{margin-top:36px; font-size:26px;}
+  .center-text small{display:block; font-family:var(--sans); font-style:normal; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--sage); margin-top:14px;}
+  .gold-line{display:block; width:46px; height:1.5px; background:var(--gold); margin:14px auto 0;}
 
   /* ENERGY WAVES — hero hook visual */
   .energy-waves{position:absolute; top:40px; right:40px; width:240px; height:240px; z-index:0; pointer-events:none;}
@@ -111,7 +132,7 @@
     80%{opacity:.08;}
     100%{width:230px; height:230px; margin:-115px 0 0 -115px; opacity:0;}
   }
-  @media (max-width:860px){ .energy-waves{display:none;} }
+  .energy-waves{display:none;}
 
   /* PULSE — energy ring glow around master photos */
   @keyframes cardPulse{
@@ -119,7 +140,7 @@
     70%{box-shadow:0 14px 40px rgba(32,48,42,.06), 0 0 0 16px rgba(111,145,131,0);}
     100%{box-shadow:0 14px 40px rgba(32,48,42,.06), 0 0 0 0 rgba(111,145,131,0);}
   }
-  .master-card{animation:cardPulse 3.4s ease-out infinite;}
+  .master-card{animation:none;}
   .master-card:nth-child(2){animation-delay:1.1s;}
   .hero .container{position:relative; z-index:1; display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:start;}
   .hero h1{font-size:clamp(34px,4.6vw,56px); line-height:1.1; margin-bottom:22px;}
@@ -269,7 +290,8 @@
 </nav>
 
 <section class="hero">
-  <svg class="sakura" viewBox="0 0 230 170" aria-hidden="true"><path d="M-5 20 C40 30 80 50 130 95 S190 140 225 150" fill="none" stroke="#8a6a55" stroke-width="3" stroke-linecap="round"/><path d="M60 38 C75 20 95 14 115 12" fill="none" stroke="#8a6a55" stroke-width="2" stroke-linecap="round"/><g fill="#f2b8c6"><circle cx="58" cy="40" r="9"/><circle cx="116" cy="12" r="8"/><circle cx="100" cy="76" r="9"/><circle cx="160" cy="118" r="8"/><circle cx="30" cy="26" r="7"/><circle cx="190" cy="140" r="7"/></g><g fill="#c9718a"><circle cx="58" cy="40" r="2.5"/><circle cx="116" cy="12" r="2.5"/><circle cx="100" cy="76" r="2.5"/><circle cx="160" cy="118" r="2.5"/><circle cx="30" cy="26" r="2"/><circle cx="190" cy="140" r="2"/></g></svg>
+  <svg class="hero-mount" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0 240V120L110 60 190 110 300 30 410 105 520 55 640 115 760 40 880 100 990 50 1100 95 1200 70V240Z" fill="#dfe9e2" opacity=".55"/><path d="M0 240V160L130 100 230 150 350 85 470 150 590 105 720 160 850 90 980 150 1090 115 1200 140V240Z" fill="#c4d6ca" opacity=".6"/><path d="M0 240V200L140 165 260 200 400 155 540 205 680 170 820 210 960 175 1090 205 1200 185V240Z" fill="#a9c2b4" opacity=".7"/></svg>
+  <svg class="sakura" viewBox="0 0 230 170" aria-hidden="true"><path d="M-5 8 C50 10 110 22 150 48 S205 66 232 62" fill="none" stroke="#8a6a55" stroke-width="3" stroke-linecap="round"/><path d="M52 14 C70 30 76 40 80 52" fill="none" stroke="#8a6a55" stroke-width="2" stroke-linecap="round"/><path d="M110 24 C118 8 130 4 146 4" fill="none" stroke="#8a6a55" stroke-width="2" stroke-linecap="round"/><g fill="#f2b8c6"><circle cx="52" cy="14" r="8"/><circle cx="80" cy="54" r="9"/><circle cx="146" cy="5" r="8"/><circle cx="150" cy="48" r="9"/><circle cx="108" cy="26" r="8"/><circle cx="205" cy="64" r="7"/><circle cx="22" cy="9" r="7"/><circle cx="186" cy="52" r="6"/></g><g fill="#c9718a"><circle cx="52" cy="14" r="2.5"/><circle cx="80" cy="54" r="2.5"/><circle cx="146" cy="5" r="2.5"/><circle cx="150" cy="48" r="2.5"/><circle cx="108" cy="26" r="2.5"/><circle cx="205" cy="64" r="2"/><circle cx="22" cy="9" r="2"/><circle cx="186" cy="52" r="2"/></g></svg>
   <div class="energy-waves" aria-hidden="true">
     <div class="core"></div>
     <div class="ring r1"></div>
@@ -310,7 +332,6 @@
   </div>
 </section>
 
-<svg class="mountains" viewBox="0 0 1200 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 48 L0 34 C80 26 140 8 220 20 S330 40 420 26 S560 4 660 18 S800 40 900 24 S1060 6 1200 30 L1200 48 Z" fill="currentColor"/></svg>
 <section class="masters" id="masters">
   <div class="container">
     <div class="section-head">
@@ -351,8 +372,8 @@
       <p>Мягкое, спокойное воздействие — бережное воздействие, подходит для регулярных профилактических сеансов и восстановления после нагрузок.</p>
     </div>
     <div class="about-visual">
-      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
-      <div class="center-text">энергия ·<br>баланс ·<br>покой</div>
+      <svg class="av-mount" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300V190L70 120 120 170 190 80 260 160 310 110 400 190V300Z" fill="#c9d9ce"/><path d="M0 300V230L80 170 150 220 230 140 300 210 360 170 400 215V300Z" fill="#a9c2b4"/><path d="M0 300V265L90 225 170 262 250 215 330 258 400 235V300Z" fill="#8aab9a"/></svg>
+      <div class="center-text">Биоэнергетический<br>массаж БЭМ<span class="gold-line"></span><small>энергия · баланс · покой</small></div>
     </div>
   </div>
 </section>
@@ -437,6 +458,7 @@
       <h2>Забронируйте сеанс</h2>
       <div class="divider"></div>
       <p>Выберите удобную дату и время — мы свяжемся с вами для подтверждения записи. Первая консультация бесплатна.</p>
+      <p class="hand">Здоровье начинается с заботы о себе</p>
       <div class="booking-contact">
         <a href="tel:+79053347789">◆ +7 905 334 77 89 — Сергей</a>
         <a href="tel:+79176434757">◆ +7 917 643 47 57 — Марина</a>
