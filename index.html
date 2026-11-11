@@ -168,6 +168,11 @@
   .form-status.ok{color:var(--sage-deep); display:block;}
   .form-status.err{color:#b4543a; display:block;}
 
+  /* GALLERY */
+  .studio-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .studio-gallery figure{margin:0; border-radius:20px; overflow:hidden; box-shadow:0 14px 40px rgba(32,48,42,.08); background:var(--sage-pale);}
+  .studio-gallery img{width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:50% 12%; display:block;}
+  @media(max-width:760px){.studio-gallery{grid-template-columns:1fr;}}
   /* MASTERS */
   .masters{background:var(--bg-soft);}
   .masters-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
@@ -375,6 +380,21 @@
     <div class="about-visual">
       <svg class="av-mount" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300V190L70 120 120 170 190 80 260 160 310 110 400 190V300Z" fill="#c9d9ce"/><path d="M0 300V230L80 170 150 220 230 140 300 210 360 170 400 215V300Z" fill="#a9c2b4"/><path d="M0 300V265L90 225 170 262 250 215 330 258 400 235V300Z" fill="#8aab9a"/></svg>
       <div class="center-text">Биоэнергетический<br>массаж БЭМ<span class="gold-line"></span><small>энергия · баланс · покой</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Студия</span>
+      <h2>Как проходят сеансы</h2>
+      <div class="divider" style="margin-left:auto; margin-right:auto;"></div>
+    </div>
+    <div class="studio-gallery">
+      <figure><img src="img/marina-studio.jpg" alt="Марина в студии БЭМ, Волгоград" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="img/sergey-smile.jpg" alt="Сергей, мастер БЭМ" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="img/session.jpg" alt="Сергей проводит сеанс биоэнергомассажа Fohow" loading="lazy" width="800" height="1000"></figure>
     </div>
   </div>
 </section>
